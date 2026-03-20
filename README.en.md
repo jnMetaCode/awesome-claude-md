@@ -188,8 +188,6 @@ We welcome your CLAUDE.md submissions! Requirements:
 
 - [agency-agents-zh](https://github.com/jnMetaCode/agency-agents-zh) — 180 AI agent experts team
 - [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) — AI coding superpowers (Chinese edition)
-- [ai-coding-101](https://github.com/jnMetaCode/ai-coding-101) — The complete guide to AI-assisted coding
-- [ai-ui-design](https://github.com/jnMetaCode/ai-ui-design) — AI-powered UI design patterns & prompts
 
 ---
 

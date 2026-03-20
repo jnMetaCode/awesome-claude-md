@@ -197,8 +197,6 @@ React 是一个用于构建用户界面的 JavaScript 库...（省略 200 行）
 
 - [agency-agents-zh](https://github.com/jnMetaCode/agency-agents-zh) — 180 个 AI 智能体专家团队
 - [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) — AI 编程超能力中文版
-- [ai-coding-101](https://github.com/jnMetaCode/ai-coding-101) — AI 编程从入门到精通
-- [ai-ui-design](https://github.com/jnMetaCode/ai-ui-design) — AI 驱动的 UI 设计指南
 
 ---
 
