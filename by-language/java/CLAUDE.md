@@ -48,3 +48,10 @@
 
 - 遵循 Google Java Style Guide，日志使用 SLF4J，禁止 `System.out.println`
 - 方法不超过 30 行，类不超过 300 行，超出则拆分
+
+## 常见陷阱
+
+- 重写 `equals()` 必须同时重写 `hashCode()`，否则 HashMap/HashSet 行为异常
+- 可变对象作为 Map key 后修改其字段会导致 key 哈希值变化，entry 永远找不回来——Map key 应使用不可变对象
+- `SimpleDateFormat` 不是线程安全的，多线程共享会产生诡异的日期解析错误——使用 `DateTimeFormatter`（Java 8+）替代
+- `Optional.get()` 在值为空时抛出 `NoSuchElementException`——必须先 `isPresent()` 检查或使用 `orElse()` / `orElseThrow()`

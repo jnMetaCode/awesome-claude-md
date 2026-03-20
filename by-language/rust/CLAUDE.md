@@ -46,3 +46,9 @@
 - 公开 API 必须有 `///` 文档注释，包含示例代码块
 - 优先使用迭代器链式调用，避免手动索引循环
 - 类型转换使用 `From`/`Into` trait，避免 `as` 强制转换
+
+## 常见陷阱
+
+- `impl` 块上的 lifetime 标注容易遗漏——当 struct 持有引用时，`impl<'a> Foo<'a>` 中的 `'a` 必须显式声明，否则编译器报错信息令人困惑
+- Cargo feature 是 additive 的：同一依赖的不同 feature 会合并（feature unification），可能导致测试通过但下游用户编译失败——用 `cargo hack --feature-powerset check` 验证
+- 在 async 函数中调用阻塞操作（如 `std::fs`、`std::thread::sleep`）会阻塞整个 tokio runtime 线程——必须用 `tokio::task::spawn_blocking` 或对应的 async 替代 API

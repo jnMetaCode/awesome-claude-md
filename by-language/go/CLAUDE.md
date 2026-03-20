@@ -42,3 +42,10 @@
 - Context 作为函数第一个参数传递，命名为 `ctx`
 - 不使用 `init()` 函数，显式初始化优于隐式
 - Channel 和 Goroutine 必须有明确的退出机制，防止泄漏
+
+## 常见陷阱
+
+- 向 nil map 写入会 panic，使用前必须 `make(map[K]V)` 初始化
+- 无缓冲 channel 在 goroutine 中发送但无接收方会导致 goroutine 永久泄漏
+- 短变量声明 `:=` 在内层作用域会遮蔽外层 `err`，导致错误被静默丢弃——用 `var err error` 提前声明或检查 `golangci-lint` 的 `shadow` 规则
+- `time.After` 在循环中使用会每次迭代创建新 timer 且旧 timer 不被 GC，导致内存泄漏——改用 `time.NewTimer` + `Reset()`

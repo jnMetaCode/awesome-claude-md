@@ -49,7 +49,5 @@ npm run test         # Run tests
 ```
 
 ## Common Pitfalls
-- `useEffect` fires twice in development under StrictMode — this is expected behavior
-- Vite environment variables must be prefixed with `VITE_` to be accessible on the client
 - Tailwind v4 uses CSS-first configuration; `tailwind.config.js` is no longer needed
 - When a route `loader` returns data, the component accesses it via `useLoaderData()`

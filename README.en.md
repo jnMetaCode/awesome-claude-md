@@ -93,6 +93,16 @@ Please use ESLint to check code quality. ESLint is a...
 [Pitfalls and conventions unique to this project]
 ```
 
+### How to Discover What to Write
+
+Not sure what belongs in your CLAUDE.md? Try this:
+
+1. **Run your build**: Note every command → goes into "Build & Test"
+2. **Review your last 5 code review comments**: Recurring feedback → goes into "Development Standards"
+3. **Recall your last gotcha**: What trips up new team members → goes into "Gotchas"
+4. **List "never do this" items**: e.g., "Never use useState in Server Components" → the most valuable content
+5. **Note what AI gets wrong**: deprecated APIs, hallucinated packages → essential for preventing hallucinations
+
 ---
 
 ## Template Directory

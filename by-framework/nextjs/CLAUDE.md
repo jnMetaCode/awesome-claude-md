@@ -12,8 +12,7 @@
 
 ## Server / Client 组件
 
-- 默认所有组件都是 Server Component，只在需要交互、浏览器 API、hooks 时才加 `'use client'`
-- `'use client'` 写在文件第一行，该指令以下整个模块树变为客户端
+- 只在需要交互、浏览器 API、hooks 时才加 `'use client'`
 - Server Component 中直接 `await` 异步数据，不需要 `useEffect` + `useState`
 - 将交互逻辑拆分为小的 Client Component，嵌入 Server Component 中，最小化客户端 bundle
 
@@ -52,3 +51,10 @@
 - `pnpm lint` - 运行 `next lint`
 - `pnpm typecheck` - 运行 `tsc --noEmit`
 - `pnpm test` - 运行 Vitest 测试
+
+## 常见陷阱
+
+- Server Component 向 Client Component 传递 props 时，值必须可序列化——不能传函数、class 实例或 Date 对象
+- Parallel Routes（`@folder`）与 Intercepting Routes 同时使用时，slot 匹配规则容易冲突——确保每个 parallel slot 都有对应的 `default.tsx`
+- Middleware 在 Edge Runtime 上运行，冷启动延迟明显——避免在 middleware 中做重逻辑或大量 I/O
+- `revalidatePath` / `revalidateTag` 只在 Server Action 或 Route Handler 中生效，在普通 Server Component 中调用无效

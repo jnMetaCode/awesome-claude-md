@@ -52,6 +52,20 @@
 - Use `cloud.getWXContext()` to obtain the openid inside cloud functions — never pass it from the frontend
 - Scheduled triggers are configured in `config.json` using cron expressions
 
+## Common Commands
+
+- Open the project directory in WeChat DevTools for live preview and debugging
+- `npm run build:weapp` — Compile and build (for Taro / uni-app projects)
+- `npm run preview` — Generate a preview QR code (requires WeChat DevTools CLI login)
+- Upload trial version: WeChat DevTools -> Upload -> Enter version number and release notes
+
+## Testing
+
+- Component testing with `miniprogram-simulate`: render and interact with custom components in a Node environment
+- Mock `wx.*` APIs: replace `wx.request`, `wx.getStorageSync`, and other async interfaces in tests
+- Extract page logic into pure functions (e.g., data formatting, validation) for independent unit testing with Jest
+- On-device debugging: WeChat DevTools -> Remote Debugging -> Scan QR code to connect
+
 ## Localization Notes
 
 - All user-facing text is written in the target language directly — no i18n framework needed unless multi-language support is required

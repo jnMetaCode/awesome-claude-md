@@ -12,8 +12,7 @@
 
 ## Server / Client Components
 
-- All components are Server Components by default — only add `'use client'` when interaction, browser APIs, or hooks are needed
-- `'use client'` goes on the first line of the file; everything in the module tree below it becomes client-side
+- Only add `'use client'` when interaction, browser APIs, or hooks are needed
 - In Server Components, `await` async data directly — no need for `useEffect` + `useState`
 - Extract interactive logic into small Client Components embedded within Server Components to minimize the client bundle
 
@@ -52,3 +51,10 @@
 - `pnpm lint` - Run `next lint`
 - `pnpm typecheck` - Run `tsc --noEmit`
 - `pnpm test` - Run Vitest tests
+
+## Common Pitfalls
+
+- Props passed from Server Components to Client Components must be serializable — you cannot pass functions, class instances, or Date objects
+- Parallel Routes (`@folder`) combined with Intercepting Routes can cause slot matching conflicts — ensure every parallel slot has a corresponding `default.tsx`
+- Middleware runs on the Edge Runtime with noticeable cold-start latency — avoid heavy logic or extensive I/O in middleware
+- `revalidatePath` / `revalidateTag` only work inside Server Actions or Route Handlers — calling them in regular Server Components has no effect

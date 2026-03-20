@@ -10,12 +10,16 @@
 ## Project Structure (Layered Architecture)
 ```
 src/main/java/com/example/project/
-  controller/    # REST controllers     service/       # Business logic layer
-  repository/    # JPA Repositories     entity/        # JPA entity classes
-  dto/           # Data transfer objects config/        # Configuration classes
+  controller/    # REST controllers
+  service/       # Business logic layer
+  repository/    # JPA Repositories
+  entity/        # JPA entity classes
+  dto/           # Data transfer objects
+  config/        # Configuration classes
   exception/     # Global exception handling (@ControllerAdvice)
 src/main/resources/
-  application.yml / application-{dev,prod}.yml  # Environment configs
+  application.yml                    # Shared configuration
+  application-{dev,prod}.yml         # Environment-specific configs
 ```
 
 ## Development Guidelines

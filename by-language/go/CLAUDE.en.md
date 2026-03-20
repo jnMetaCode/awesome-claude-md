@@ -42,3 +42,10 @@
 - Pass `context.Context` as the first parameter, named `ctx`
 - Do not use `init()` functions — explicit initialization is preferred over implicit
 - Channels and goroutines must have a clear exit mechanism to prevent leaks
+
+## Common Pitfalls
+
+- Writing to a nil map panics — always initialize with `make(map[K]V)` before use
+- Sending on an unbuffered channel in a goroutine with no receiver causes a permanent goroutine leak
+- Short variable declarations (`:=`) in inner scopes shadow outer `err` variables, silently discarding errors — declare `var err error` upfront or enable `golangci-lint`'s `shadow` checker
+- `time.After` used inside loops creates a new timer each iteration and old timers are not GC'd, causing memory leaks — use `time.NewTimer` + `Reset()` instead

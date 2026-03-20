@@ -48,3 +48,10 @@
 
 - Follow Google Java Style Guide; use SLF4J for logging — `System.out.println` is forbidden
 - Methods should not exceed 30 lines; classes should not exceed 300 lines — split when exceeded
+
+## Common Pitfalls
+
+- Overriding `equals()` without overriding `hashCode()` breaks HashMap/HashSet behavior
+- Using mutable objects as Map keys and then modifying their fields changes the hash — the entry becomes unretrievable; always use immutable objects as Map keys
+- `SimpleDateFormat` is not thread-safe; sharing it across threads produces bizarre date parsing errors — use `DateTimeFormatter` (Java 8+) instead
+- `Optional.get()` throws `NoSuchElementException` when empty — always check with `isPresent()` first or use `orElse()` / `orElseThrow()`

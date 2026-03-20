@@ -44,8 +44,23 @@
 - Prefer `activeTab` over broad host permissions when applicable
 - Permission changes trigger automatic extension disabling — plan for upgrade compatibility
 
+## Common Commands
+
+```bash
+npm run dev          # Watch mode, auto-rebuild on file changes
+npm run build        # Production build, outputs to dist/
+```
+- Load the extension: open `chrome://extensions`, enable Developer Mode, click "Load unpacked" and select the `dist/` directory
+
 ## Development & Debugging
 
 - Use Vite / webpack for bundling with multiple entry points (background, content, popup)
 - Debug Service Worker: `chrome://extensions` -> click the "Service Worker" link
 - Before publishing, load as unpacked and perform a full end-to-end test
+
+## Testing
+
+- Use Jest + `@testing-library/dom` to test popup and options page UI
+- Mock `chrome.*` APIs: use `jest-chrome` or manually mock `chrome.storage`, `chrome.runtime`, etc.
+- Extract Content Script logic into pure functions for isolated testing — avoid reliance on a real DOM environment
+- Separate Service Worker event handlers from business logic so the logic can be unit-tested independently

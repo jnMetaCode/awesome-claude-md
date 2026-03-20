@@ -35,7 +35,22 @@
 - `host_permissions` 精确匹配域名，避免 `<all_urls>`；优先用 `activeTab`
 - 权限变更会触发扩展禁用，升级时注意兼容性
 
+## 常用命令
+
+```bash
+npm run dev          # Watch 模式，文件变更自动重新打包
+npm run build        # 生产构建，输出到 dist/
+```
+- 加载扩展：打开 `chrome://extensions`，启用开发者模式，点击"加载已解压的扩展程序"选择 `dist/` 目录
+
 ## 开发与调试
 
 - 使用 Vite / webpack 打包，配置多 entry（background、content、popup）
 - 发布前在 `chrome://extensions` 加载 unpacked 做完整流程测试
+
+## 测试
+
+- 使用 Jest + `@testing-library/dom` 测试 popup 和 options 页面 UI
+- Mock `chrome.*` API：使用 `jest-chrome` 或手动 mock `chrome.storage`、`chrome.runtime` 等命名空间
+- Content Script 逻辑提取为纯函数单独测试，避免依赖真实 DOM 环境
+- Service Worker 事件处理函数与业务逻辑分离，业务逻辑可独立做单元测试

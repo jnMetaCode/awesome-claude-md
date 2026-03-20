@@ -49,7 +49,5 @@ npm run test         # 运行测试
 ```
 
 ## 常见陷阱
-- `useEffect` 在 StrictMode 下开发时会执行两次，这是预期行为
-- Vite 环境变量必须以 `VITE_` 前缀开头才能在客户端访问
 - Tailwind v4 使用 CSS-first 配置，不再需要 `tailwind.config.js`
 - 路由中使用 `loader` 返回数据时，组件通过 `useLoaderData()` 获取

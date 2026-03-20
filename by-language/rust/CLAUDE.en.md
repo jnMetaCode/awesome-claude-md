@@ -46,3 +46,9 @@
 - Public APIs must have `///` doc comments including example code blocks
 - Prefer iterator chains over manual index-based loops
 - Use `From`/`Into` traits for type conversion — avoid `as` casts
+
+## Common Pitfalls
+
+- Lifetime annotations on `impl` blocks are easy to miss — when a struct holds references, `impl<'a> Foo<'a>` requires the explicit `'a`, and the compiler error messages can be confusing
+- Cargo features are additive: different features of the same dependency get unified (feature unification), which can cause tests to pass locally but downstream users to fail to compile — verify with `cargo hack --feature-powerset check`
+- Calling blocking operations (e.g., `std::fs`, `std::thread::sleep`) inside async functions blocks the entire tokio runtime thread — use `tokio::task::spawn_blocking` or the corresponding async alternative APIs

@@ -10,12 +10,16 @@
 ## 项目结构（分层架构）
 ```
 src/main/java/com/example/project/
-  controller/    # REST 控制器    service/       # 业务逻辑层
-  repository/    # JPA Repository  entity/        # JPA 实体类
-  dto/           # 数据传输对象    config/        # 配置类
+  controller/    # REST 控制器
+  service/       # 业务逻辑层
+  repository/    # JPA Repository
+  entity/        # JPA 实体类
+  dto/           # 数据传输对象
+  config/        # 配置类
   exception/     # 全局异常处理（@ControllerAdvice）
 src/main/resources/
-  application.yml / application-{dev,prod}.yml  # 环境配置
+  application.yml                    # 公共配置
+  application-{dev,prod}.yml         # 环境配置
 ```
 
 ## 开发规范
