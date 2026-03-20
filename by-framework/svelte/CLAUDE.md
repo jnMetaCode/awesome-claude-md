@@ -56,4 +56,4 @@ npm run check        # svelte-check 类型检查
 - `$state` 对象是深度响应式的，但重新赋值整个对象才会触发引用变更
 - `load` 函数的返回值会序列化传给客户端，不能包含不可序列化的值（如函数、类实例）
 - 使用 `{@html}` 渲染 HTML 时必须确保内容已消毒，防止 XSS
-- `goto()` 导航默认会调用目标页面的 `load`，传 `invalidateAll: false` 可跳过
+- `goto()` 导航默认会重新运行所有活跃的 `load` 函数；传 `invalidateAll: false` 可阻止重新运行其他页面的 `load`，但目标页面自身的 `load` 仍然会执行
