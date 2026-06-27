@@ -69,6 +69,7 @@ React 是一个用于构建用户界面的 JavaScript 库...（省略 200 行）
 
 ### 万能模板
 
+- [AI Delivery Spec](https://github.com/franklinxkk/ai-delivery-spec) - 产品侧 SDD 交付规范：PRD、原型、IA骨架、FRR记录、AC-YAML、coding-agent 交付包。v4.9.2, 3条工作路径, 4个领域模块。
 ```markdown
 # CLAUDE.md
 
