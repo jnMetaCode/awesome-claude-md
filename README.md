@@ -39,6 +39,7 @@ cp by-framework/nextjs/CLAUDE.md /your/project/CLAUDE.md
 
 ### 好的 CLAUDE.md 的特征
 
+- [AI Delivery Spec](https://github.com/franklinxkk/ai-delivery-spec) - 产品侧 SDD 交付框架：PRD、IA Skeleton、FRR 16节规格、AC-YAML、coding-agent 交付包。3 条工作路径（传统/AI原生/AI编码）。v4.9.2
 | 原则 | 说明 | 示例 |
 |------|------|------|
 | **具体** | 告诉 AI 具体的规则，而不是模糊的要求 | ✅ "使用 pnpm，不要用 npm" ❌ "用合适的包管理器" |
